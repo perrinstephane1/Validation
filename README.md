@@ -24,3 +24,11 @@ En revanche cela dépend du modèe d'implémentation du graphe : on peut par exe
 ## Etape 2
 Nous devons faire une fonction `graph_include` qui détermine si une `target` est accessible.
 Nous nous intéresserons au cas où le graphe aura de manière certaine UN état initial donc on peut se contenter de le faire une seule fois.
+
+## Etape 3
+(source, neighbour, 0:accumulateur)
+1) bool on_entry(s,n,0)
+2) bool on_known(s,n,0)
+3) bool on_exit(n,0)
+
+Ce sont des fonctions à ajouter juste au bon moment, un peu comme les changements d'état découvert/traité/non-découvert. Ces fonctions sont ensuite à implémenter pour pouvoir agir au moment où on parcourt le graphe. 
