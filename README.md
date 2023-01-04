@@ -28,7 +28,9 @@ Nous nous intéresserons au cas où le graphe aura de manière certaine UN état
 ## Etape 3
 (source, neighbour, 0:accumulateur)
 1) bool on_entry(s,n,0)
-2) bool on_known(s,n,0)
+2) bool on_known(s,n,0) -> à ahcaque fois qu'on revient sur un noed connu
 3) bool on_exit(n,0)
 
 Ce sont des fonctions à ajouter juste au bon moment, un peu comme les changements d'état découvert/traité/non-découvert. Ces fonctions sont ensuite à implémenter pour pouvoir agir au moment où on parcourt le graphe. 
+
+On a rajouté l'algo `bfs`qui est celui au tableau, la file à double entrée permet de pop à coût constant.

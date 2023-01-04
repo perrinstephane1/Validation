@@ -1,3 +1,5 @@
+from collections import deque
+
 import numpy as np
 
 def traite_sommet(s, g, file, couleurs, resultat):
@@ -79,4 +81,27 @@ def graph_include(g, target):
             return True
         i+=1
     return False
+
+def bfs(g, target, acc, f1, f2, f3):
+    known=set()
+    frontiere=deque() #file à double entrée
+    at_start=True
+    while frontiere or at_start:
+        source=None
+        if at_start:
+            neighbours=g.initial()
+            at_start=False
+        else:
+            source=frontiere.popleft()
+            neighbours=g.next(source)
+        for n in neighbours:
+            if n in known:
+                f2(n)
+                continue
+            known.add(n)
+            f1(source)
+            frontiere.append(n)
+        f3(source)
+    return acc,known
+
 
