@@ -18,6 +18,7 @@ def traite_sommet(s, g, file, couleurs, resultat):
             couleurs[f]="découvert"
             resultat[f]=s
             file.append(f)
+    couleurs[s]="traité"
     return file, couleurs, resultat
 
 
@@ -39,8 +40,8 @@ def parcours_largeur(g, depart):
         for f in fils:
             if not(f in s):
                 s.append(f)
-    print("liste des sommets dans le graphe :")
-    print(s)
+    #print("liste des sommets dans le graphe :")
+    #print(s)
     if not(depart in s):
         print("Le sommet n'est pas dans le graphe")
         return 0
@@ -55,9 +56,26 @@ def parcours_largeur(g, depart):
     resultat[depart]=depart
 
     file=[depart]
-    print("départ")
+    #print("départ")
     while len(file)>0:
         sommet=file.pop()
         file, couleurs, resultat=traite_sommet(sommet, g, file, couleurs, resultat)
 
     return resultat
+
+def graph_include(g, target):
+    s=[]
+    for a in g:
+        fils=g.get(a)
+        if not(a in s):
+            s.append(a)
+        for f in fils:
+            if not(f in s):
+                s.append(f)
+    i=0
+    while (i<len(s)):
+        parents=parcours_largeur(g,s[i])
+        if parents[target]!=None:
+            return True
+        i+=1
+    return False
