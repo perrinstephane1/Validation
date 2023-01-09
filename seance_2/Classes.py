@@ -9,7 +9,7 @@ class TransitionRelation:
     def __init__(self):
         pass
     @abstractmethod
-    def roots(self, source):
+    def roots(self):
         pass
 
     @abstractmethod
