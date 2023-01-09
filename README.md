@@ -1,6 +1,8 @@
 # Validation
 Cours de Validation 2023
-##Etape 1
+
+## Cours du 4 janvier
+###Etape 1
 on crée un parcours de graphe en largeur
 Le graphe est une liste d'adjacente sous la forme d'un dictionnaire
 
@@ -21,11 +23,11 @@ Cela correspond à la liste des parents par lesquels on accède à un noeud. Il 
 
 En revanche cela dépend du modèe d'implémentation du graphe : on peut par exemple créer des fonctions qu'on implémentera (pex : g.initial ou g.next pour avoir la source/avoir les sommets fils)
 
-## Etape 2
+### Etape 2
 Nous devons faire une fonction `graph_include` qui détermine si une `target` est accessible.
 Nous nous intéresserons au cas où le graphe aura de manière certaine UN état initial donc on peut se contenter de le faire une seule fois.
 
-## Etape 3
+### Etape 3
 (source, neighbour, 0:accumulateur)
 1) bool on_entry(s,n,0)
 2) bool on_known(s,n,0) -> à ahcaque fois qu'on revient sur un noed connu
@@ -34,3 +36,16 @@ Nous nous intéresserons au cas où le graphe aura de manière certaine UN état
 Ce sont des fonctions à ajouter juste au bon moment, un peu comme les changements d'état découvert/traité/non-découvert. Ces fonctions sont ensuite à implémenter pour pouvoir agir au moment où on parcourt le graphe. 
 
 On a rajouté l'algo `bfs`qui est celui au tableau, la file à double entrée permet de pop à coût constant.
+
+## cours du 9 janvier
+On voudrait un truc du genre :
+```python
+class TransitionRelation:
+    @abstractmethod
+    def roots(self):
+        pass
+    @abstractmethod
+    def next(self, source):
+        pass
+```
+On va essayer d'implémenter ça.
