@@ -1,10 +1,10 @@
 from abc import abstractmethod
-
+from itertools import combinations
+import copy
 
 class TransitionRelation:
-    def __init__(self, dict):
-        self.dict=dict
-
+    def __init__(self):
+        pass
     @abstractmethod
     def roots(self, source):
         pass
@@ -15,11 +15,18 @@ class TransitionRelation:
 
 class NBits(TransitionRelation):
     def __init__(self, dict, root):
-        super.__init__(dict)
+        self.dict=dict
         self.root=root
 
-    def roots(self, source):
+    def roots(self):
         return self.root
 
     def next(self, source):
-        return self.dict[source]
+        res = []
+        n = len(source)
+        tools = [k for k in range(n)]
+        # print(tools)
+        for i in range(n):
+            res.append(copy.deepcopy(source))
+            res[-1][i] = not (source[i])
+        return res

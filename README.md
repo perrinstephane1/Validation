@@ -50,3 +50,5 @@ class TransitionRelation:
 ```
 On va essayer d'implémenter ça.
 On voudrait une fonction qui recherche un noeud qui a des conditions particulières.
+On crée une fonction next qui donne toutes les modificiations d'un bit : '101' revoie toutes les modifications.
+On essaie de générer un graphe.
