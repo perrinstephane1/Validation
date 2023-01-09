@@ -89,19 +89,22 @@ def bfs(g, acc, f1, f2, f3):
     while frontiere or at_start:
         source=None
         if at_start:
-            neighbours=g.initial()
+            neighbours=g.roots()
             at_start=False
         else:
             source=frontiere.popleft()
             neighbours=g.next(source)
         for n in neighbours:
             if n in known:
-                f2(n)
+                if f2!=None and f2(source, n, acc):
+                    return acc, known
                 continue
             known.add(n)
-            f1(source)
+            if f1!=None and f1(source, n, acc):
+                return acc, known
             frontiere.append(n)
-        f3(source)
+        if f3!= None and f3(source, acc):
+            return acc, known
     return acc,known
 
 
