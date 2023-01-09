@@ -2,6 +2,7 @@ from collections import deque
 
 import numpy as np
 
+
 def traite_sommet(s, g, file, couleurs, resultat):
     """
     Traite un sommet
@@ -12,17 +13,16 @@ def traite_sommet(s, g, file, couleurs, resultat):
     :param resultat: dictionnaire des résultats
     :return: file, résultat
     """
-    couleurs[s]="traitement"# on passe le sommet en traitement
-    fils=g.get(s)
+    couleurs[s] = "traitement"  # on passe le sommet en traitement
+    fils = g.get(s)
     for f in fils:
-        if couleurs[f]=="non découvert":
-            #print("ajout du sommet "+f+" dans la file")
-            couleurs[f]="découvert"
-            resultat[f]=s
+        if couleurs[f] == "non découvert":
+            # print("ajout du sommet "+f+" dans la file")
+            couleurs[f] = "découvert"
+            resultat[f] = s
             file.append(f)
-    couleurs[s]="traité"
+    couleurs[s] = "traité"
     return file, couleurs, resultat
-
 
 
 def parcours_largeur(g, depart):
@@ -32,9 +32,9 @@ def parcours_largeur(g, depart):
     :param depart: sommet de départ
     :return:
     """
-    n=len(g) #nombre de sommets dans le graphe
-    #liste des sommets
-    s=[]
+    n = len(g)  # nombre de sommets dans le graphe
+    # liste des sommets
+    s = []
     for a in g:
         fils=g.get(a)
         if not(a in s):
@@ -82,7 +82,7 @@ def graph_include(g, target):
         i+=1
     return False
 
-def bfs(g, target, acc, f1, f2, f3):
+def bfs(g, acc, f1, f2, f3):
     known=set()
     frontiere=deque() #file à double entrée
     at_start=True

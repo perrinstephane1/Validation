@@ -49,3 +49,4 @@ class TransitionRelation:
         pass
 ```
 On va essayer d'implémenter ça.
+On voudrait une fonction qui recherche un noeud qui a des conditions particulières.
