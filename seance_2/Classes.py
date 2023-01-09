@@ -45,6 +45,7 @@ class Noeud():
 
     def __hash__(self):
         return 1
+
     def __eq__(self, other):
         i=0
         if len(self.list)!=len(other.list):
@@ -55,3 +56,36 @@ class Noeud():
             return True
         else:
             return False
+
+class HanoiConfiguration(TransitionRelation):
+    def __init__(self, nb_piles, nb_disque):
+        self.nb_piles = nb_piles
+        self.nb_disque = nb_disque
+        self.initial = self.roots()
+
+    def roots(self):  # Etat initial du jeu (tableau de tableau)
+        res = []
+        n = self.nb_piles
+        m = self.nb_disque
+        for i in range(n):
+            res.append([])
+        for j in range(m):
+            res[0].append(m-j)
+        print(res)
+        return res
+
+    def next(self, source):
+        liste_res = []
+        res = copy.deepcopy(source)
+        for i in range(self.nb_disque):
+            for j in range(self.nb_disque):
+                if source[i] != [] and (source[j] == [] or (source[i][-1] >= source[j][-1])):
+                    res[i].append(res[j][-1])
+                    res[j] = res[j][:-1]
+                    liste_res.append(res)
+        print(liste_res)
+        return liste_res
+
+
+    def on_entry(self):
+        pass

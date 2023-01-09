@@ -15,3 +15,7 @@ def f1(s, v, acc):
 graphe=NBits([3], 4)
 #print(graphe.next(graphe.roots()[0]))
 print(bfs(NBits([3],4), [0], f1, None, None))
+
+if __name__ == '__main__':
+    jeu = HanoiConfiguration(3, 3)
+    jeu.next([[3,2,1], [], []])
