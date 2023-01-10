@@ -76,13 +76,19 @@ class HanoiConfiguration(TransitionRelation):
 
     def next(self, source):
         liste_res = []
-        res = copy.deepcopy(source)
         for i in range(self.nb_disque):
-            for j in range(self.nb_disque):
-                if source[i] != [] and (source[j] == [] or (source[i][-1] >= source[j][-1])):
-                    res[i].append(res[j][-1])
-                    res[j] = res[j][:-1]
-                    liste_res.append(res)
+            res = copy.deepcopy(source)
+            if res[i]:
+                a = res[i].pop()
+                for j in range(self.nb_disque):
+                    res = copy.deepcopy(source)
+                    if res[i]:
+                        a = res[i].pop()
+                    if source[j] == [] or (a <= source[j][-1]):
+                        res[j].append(a)
+                        if res not in liste_res:
+                            liste_res.append(res)
+
         print(liste_res)
         return liste_res
 
