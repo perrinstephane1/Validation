@@ -31,15 +31,16 @@ class HanoiConfiguration(TransitionRelation):
 
 class HanoiGraph(TransitionRelation):
     def __init__(self, config):
-        self.root=config
+        self.root=config #HanoiConfiguration
 
     def roots(self):
         print("COUCOU")
         print(self.root)
         return [self.root]
-    def next(self, source):
+    def vieuxNext(self, source):
         res=[]
         for i in range(source.taille()):
+            print("coucou")
             if source.conf[i]!=[]: # si on peut prendre un disque
                 print(source.conf[i])
                 indice=source.conf[i][1]
@@ -47,12 +48,37 @@ class HanoiGraph(TransitionRelation):
                 for j in range(source.taille()):
                     if j!=i:
                         if (source.conf[j]==[]) or (source.conf[i][0]<indice):
-                            disque=source.conf[i].pop()
+
                             res.append(copy.deepcopy(source))
+                            disque=res[-1][i].pop()
                             res[-1].conf[j]=[indice]+res[-1].conf[j]
                             print("on ajoute")
         print("ON A FINI LA RECHERCHE : on ajoute ça :")
         print(res)
+        return res
+
+    def next(self, source):
+        """
+        :param source: de type HanoiConfiguation
+        :return: liste de HanoiConfiguration
+        """
+        res = []
+        n = source.taille()
+        for i in range(n):
+            if source.conf[i] != []:
+                for j in range(n):
+                    if i != j:
+                        if source.conf[j] == []:
+                            res.append(copy.deepcopy(source))
+                            config = res[-1]
+                            indice = config.conf[i].pop(0)
+                            config.conf[j].append(indice)
+                        elif source.conf[i][0] < source.conf[j][0]:
+                            res.append(copy.deepcopy(source))
+                            config = res[-1]
+                            config.conf[j].reverse()
+                            config.conf[j].append(config.conf[i][0])
+                            config.conf[j].reverse()
         return res
 
 
