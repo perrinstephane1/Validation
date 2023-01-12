@@ -25,11 +25,29 @@ tours=HanoiConfiguration(3,3)
 hanoi_graphe=HanoiGraph(tours)
 #print(hanoi_graphe.next(hanoi_graphe.roots()))
 #print(hanoi_graphe.next(hanoi_graphe.roots()))
-#print(bfs(hanoi_graphe, [0], hanoi_on_entry, None, None))
-res=monNext(tours)
-for k in range(len(res)):
-    print(res[k].conf)
+print(bfs(hanoi_graphe, [0], hanoi_on_entry, None, None))
+#res=monNext(tours)
+def test():
+    while len(res)>0:
+        test=monNext(res[0])
+        bonjour=res.pop(0)
+        print("->on traite")
+        print(bonjour.conf)
+        for k in range(len(test)):
+            res.append(test[k])
+            print(test[k].conf)
+        print("----------------------------")
+        if hanoi_on_entry(0,bonjour,0):
+            print("GAGNE")
+            break
+tours.conf=[[1, 2], [0], []]
+#monNext(tours)
+#test()
 
-coucou=monNext(res[1])
-for k in range(len(coucou)):
-    print(coucou[k].conf)
+
+
+
+# monTest=HanoiConfiguration(3,3)
+# monTest.conf=[[],[],[0,1,2]]
+# print(monTest.conf)
+# print(hanoi_on_entry(1, monTest, 0))

@@ -105,6 +105,7 @@ def bfs(g, acc, f1, f2, f3):
             frontiere.append(n)
         if f3!= None and f3(source, acc):
             return acc, known
+
     return acc,known
 
 
