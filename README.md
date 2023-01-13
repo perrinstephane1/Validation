@@ -1,5 +1,5 @@
 # Validation
-Cours de Validation 2023
+Cours de Validation (2023)
 
 ## Cours du 4 janvier
 ###Etape 1
