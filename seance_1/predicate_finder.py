@@ -1,4 +1,5 @@
-from parcours_largeur import bfs
+from seance_1 import parcours_largeur
+
 
 def predicate_finder(graph, predicate=lambda n: False):
     def check_predicate(s, n, a):
