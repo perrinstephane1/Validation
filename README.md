@@ -29,7 +29,7 @@ Nous nous intéresserons au cas où le graphe aura de manière certaine UN état
 
 ### Etape 3
 (source, neighbour, 0:accumulateur)
-1) bool on_entry(s,n,0)
+1) bool on_entry(s,n,0) pour arreter la progression dans l'arbre sous une certaine condition
 2) bool on_known(s,n,0) -> à ahcaque fois qu'on revient sur un noed connu
 3) bool on_exit(n,0)
 
