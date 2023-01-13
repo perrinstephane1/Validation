@@ -1,7 +1,7 @@
 class IdentityProxy():
     def __init__(self, operand):
         self.operand = operand
-        continue
+        pass
 
     def __getattr__(self, attr):
         return getattr(self.operand, attr)

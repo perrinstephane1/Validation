@@ -14,5 +14,5 @@ class ParentTraceProxy(IdentityProxy):
 
 
 def getTrace(dict, target):
-    continue
     # A modifier
+    return 0
