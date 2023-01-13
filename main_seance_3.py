@@ -13,5 +13,6 @@ if __name__ == '__main__':
     # ptp = ParentTraceProxy(h, pDict)
     # [p, found, count, target] = predicate_finder(ptp, solution_pred)
     # getTrace(pDict, target)
+    pass
 
 
