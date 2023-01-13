@@ -16,13 +16,16 @@ class HanoiConfiguration(TransitionRelation):
     def __hash__(self):
         return 1
 
+    # def __eq__(self, other):
+    #     if len(self.conf)!=other.conf:
+    #         return False
+    #     for i in range(len(self.conf)):
+    #         if len(self.conf[i]) != other.conf[i]:
+    #             return False
+    #         for k in range(len(self.conf[i])):
+    #             if self.conf[i][k]!=other.conf[i][k]:
+    #                 return False
+    #     return True
+
     def __eq__(self, other):
-        if len(self.conf)!=other.conf:
-            return False
-        for i in range(len(self.conf)):
-            if len(self.conf[i]) != other.conf[i]:
-                return False
-            for k in range(len(self.conf[i])):
-                if self.conf[i][k]!=other.conf[i][k]:
-                    return False
-        return True
+        return self.conf==other.conf

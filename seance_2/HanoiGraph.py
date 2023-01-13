@@ -85,3 +85,6 @@ class HanoiGraph(TransitionRelation):
         print("GAGNE")
         return True
 
+    def __eq__(self, other):
+        return self.root == other.root
+

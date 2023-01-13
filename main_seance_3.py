@@ -32,5 +32,7 @@ if __name__ == '__main__':
     ptp = ParentTraceProxy(hg, pDict)
     [p, found, count, target], known = predicate_finder(ptp, hg.hanoi_on_entry1)
     #testRecherche(pDict, target)
+    #print(hg == hg)
+    #print(target.conf)
     print(getTrace(pDict, target))
     # getTrace(pDict, target)
