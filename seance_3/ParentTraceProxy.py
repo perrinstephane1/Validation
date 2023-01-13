@@ -19,7 +19,10 @@ class ParentTraceProxy(IdentityProxy):
 
 def getTrace(dict, target):
     res=[target]
-    courant=None
-    while courant!=res[-1]:
-        courant=dict[courant]
-    return res.reverse()
+    courant=target
+    while courant!=dict[courant]:
+        courant=dict[res[-1]]
+        res.append(courant)
+        #print(courant)
+    res.reverse()
+    return res
