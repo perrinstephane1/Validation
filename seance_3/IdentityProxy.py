@@ -1,4 +1,4 @@
-class IdentityProxy():
+class IdentityProxy:
     def __init__(self, operand):
         self.operand = operand
         pass

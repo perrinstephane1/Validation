@@ -71,3 +71,17 @@ class HanoiGraph(TransitionRelation):
         print("GAGNE")
         return True
 
+
+    def hanoi_on_entry1(self, n):
+        conf = n.conf
+        i = 0
+        while i < n.taille() - 1:
+            if conf[i] != []:
+                return False
+            i = i + 1
+        double = copy.deepcopy(conf[-1])
+        if double.sort() == conf[-1]:
+            return False
+        print("GAGNE")
+        return True
+

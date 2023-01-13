@@ -2,7 +2,7 @@ from seance_3.IdentityProxy import IdentityProxy
 
 class ParentTraceProxy(IdentityProxy):
     def __init__(self, operand, dict):
-        super.__init__(operand)# l'opérande c'est le graphe qu'on va explorer
+        super().__init__(operand)# l'opérande c'est le graphe qu'on va explorer
         self.dict = dict
 
     def roots(self):
@@ -22,9 +22,9 @@ class ParentTraceProxy(IdentityProxy):
 def getTrace(dict, target):
     res=[target]
     courant=target
-    while courant!=dict[courant]:
+    while courant!=res[-1]:
         courant=dict[res[-1]]
         res.append(courant)
-        #print(courant)
+        print(courant.conf, courant,res[-1])
     res.reverse()
     return res

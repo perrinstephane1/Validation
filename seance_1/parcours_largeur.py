@@ -82,7 +82,7 @@ def graph_include(g, target):
         i+=1
     return False
 
-def bfs(g, acc, f1, f2, f3):
+def bfs(g, acc, f1, f2=None, f3=None):
     known=set()
     frontiere=deque() #file à double entrée
     at_start=True
