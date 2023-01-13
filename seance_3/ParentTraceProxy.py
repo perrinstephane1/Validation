@@ -14,7 +14,9 @@ class ParentTraceProxy(IdentityProxy):
     def next(self, source):
         neighbours = self.operand.next(source)
         for n in neighbours:
-            self.dict[n]=source
+            # si y a un parent, on ne doit pas toucher !!
+            if not(n in self.dict):
+                self.dict[n]=source
         return neighbours  # retourne le next du graphe
 
 def getTrace(dict, target):
