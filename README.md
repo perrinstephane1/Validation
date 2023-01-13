@@ -52,4 +52,8 @@ On va essayer d'implémenter ça.
 On voudrait une fonction qui recherche un noeud qui a des conditions particulières.
 On crée une fonction next qui donne toutes les modificiations d'un bit : '101' revoie toutes les modifications.
 On essaie de générer un graphe.
-Créer une fonction qui implémente un noeud comme hashable.
+
+On a ensuite implémenté le jeu de hanoi, en finissant sur : le bfs s'arrête quand on a gagné (codage de la fonction `hanoi_on_entry` qui indique si on a gagné)
+##Séance du 13 janvier
+1) traçage : on veut savoir comment on arrive à l'état gagné
+2) eDSL ?
