@@ -7,12 +7,19 @@ class ParentTraceProxy(IdentityProxy):
 
     def roots(self):
         neighbours = self.operand.roots()
-        # A completer
+        for n in neighbours:
+            self.dict[n]=n
+        return neighbours  # retourne le root du graphe
 
     def next(self, source):
         neighbours = self.operand.next(source)
-
+        for n in neighbours:
+            self.dict[n]=source
+        return neighbours  # retourne le next du graphe
 
 def getTrace(dict, target):
-    # A modifier
-    return 0
+    res=[target]
+    courant=None
+    while courant!=res[-1]:
+        courant=dict[courant]
+    return res.reverse()
