@@ -67,3 +67,19 @@ on définit une classe `identityProxy` avec un seul attribut `operand`, et un `g
 def __getattr__(self, attr):
     return getattr(self.operand, attr)
 ```
+On va faire hériter de cette classe-là en chngeant les méthodes.
+```python
+class ParentTraceProxy(IdentityProxy):
+    def __init__(self, operand, dict):
+        self.operand=operand
+        self.dict=dict
+    def roots(self):
+        #doit appeler la fonction roots de l'operande et mettre à jour les parents
+        neighboors=self.operand.roots()
+        # maj du dico
+        pass
+    def next(self, source):
+        neighboors=self.operand.next(source)
+        # maj...
+        pass
+```
