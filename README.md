@@ -1,5 +1,5 @@
 # Validation
-Cours de Validation 2023
+Cours de Validation (2023)
 
 ## Cours du 4 janvier
 ###Etape 1
@@ -57,3 +57,29 @@ On a ensuite implémenté le jeu de hanoi, en finissant sur : le bfs s'arrête q
 ##Séance du 13 janvier
 1) traçage : on veut savoir comment on arrive à l'état gagné
 2) eDSL ?
+
+### solution avec un dictionnaire 
+On ne veut pas faire un dictionnaire de parents, on veut plutôt construire l'arbre des parents
+pendant l'appel de `roots()` et `next()`.
+
+on définit une classe `identityProxy` avec un seul attribut `operand`, et un `getattr` qui retourne l'operande:
+```python
+def __getattr__(self, attr):
+    return getattr(self.operand, attr)
+```
+On va faire hériter de cette classe-là en chngeant les méthodes.
+```python
+class ParentTraceProxy(IdentityProxy):
+    def __init__(self, operand, dict):
+        self.operand=operand
+        self.dict=dict
+    def roots(self):
+        #doit appeler la fonction roots de l'operande et mettre à jour les parents
+        neighboors=self.operand.roots()
+        # maj du dico
+        pass
+    def next(self, source):
+        neighboors=self.operand.next(source)
+        # maj...
+        pass
+```
