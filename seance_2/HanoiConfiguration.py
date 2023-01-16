@@ -1,7 +1,9 @@
+import copy
+from seance_4.AConfig import AConfig
 from seance_2.TransitionRelation import TransitionRelation
 
 
-class HanoiConfiguration(TransitionRelation):
+class HanoiConfiguration(AConfig):
     # état du jeu
     def __init__(self, taille, nbre_disque):
         self.conf=[[k for k in range(nbre_disque)]]
@@ -29,3 +31,6 @@ class HanoiConfiguration(TransitionRelation):
 
     def __eq__(self, other):
         return self.conf==other.conf
+
+    def copy(self):
+        return copy.deepcopy(self)
