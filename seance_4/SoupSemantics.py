@@ -1,3 +1,8 @@
+import copy
+
+from seance_4.SemanticTransitionRelation import SemanticTransitionRelation
+
+
 class SoupSemantics(SemanticTransitionRelation):
     def __init__(self, program):
         self.program = program
@@ -6,7 +11,7 @@ class SoupSemantics(SemanticTransitionRelation):
         return [self.program.ini]
 
     def enabledActions(self, source):
-        return filter(lambda r: r.guard(source), program.rules)
+        return filter(lambda r: r.guard(source), self.program.rules)
 
     def execute(selfself, action, source):
         t = copy.deepcopy(source)
