@@ -56,7 +56,7 @@ On essaie de générer un graphe.
 On a ensuite implémenté le jeu de hanoi, en finissant sur : le bfs s'arrête quand on a gagné (codage de la fonction `hanoi_on_entry` qui indique si on a gagné)
 ##Séance du 13 janvier
 1) traçage : on veut savoir comment on arrive à l'état gagné
-2) eDSL ?
+2) eDSL : embedded DSL
 
 ### solution avec un dictionnaire 
 On ne veut pas faire un dictionnaire de parents, on veut plutôt construire l'arbre des parents
@@ -84,3 +84,19 @@ class ParentTraceProxy(IdentityProxy):
         pass
 ```
 
+### Séance du 16 janvier
+- InitialConfigurations():List<C>
+- enabledActions(C source): List<A>
+- execute(A action, C source): List<C>
+
+*next* : ce qu'on fait jusqu'à présent
+- deepcopy
+- identifier les actions possibles
+- on les exécute
+
+```python
+class Rule:
+    def __init__(self , guard, action):
+        self.guard=guard
+        self.action=action
+```
