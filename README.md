@@ -85,9 +85,13 @@ class ParentTraceProxy(IdentityProxy):
 ```
 
 ### Séance du 16 janvier
+class SemanticsTransitionRelation
+méthodes :
 - InitialConfigurations():List<C>
 - enabledActions(C source): List<A>
 - execute(A action, C source): List<C>
+ 
+ fonction `str2tr(a Str): TR` toute seule !
 
 *next* : ce qu'on fait jusqu'à présent
 - deepcopy
@@ -99,4 +103,19 @@ class Rule:
     def __init__(self , guard, action):
         self.guard=guard
         self.action=action
+class SoupProgram():
+    # possède les trois fonctions plus haut
+    def __init__(self, ini):
+        self.ini=ini
+        self.rules=[]
+    def add(self, rule):
+        self.rules.append(rule)
+class SoupSemantics(SemanticTransitionRelation):
+    def __init__(self, program):
+        self.program=program
+    def initialConfiguration(self):
+        return [self.program.ini]
+    def enabledAction(self, source):
+        return filter(labdafct, r.guard(source)), program.rules
+
 ```
