@@ -135,3 +135,9 @@ class SoupSemantics(SemanticTransitionRelation):
         return action.execute(t)
 
 ```
+
+Pour la semaine prochaine
+3 premiers versions du TD Vérif
+- Alice et Bob qui violent la CS : contre exemple
+- deadlock !
+- livelock
