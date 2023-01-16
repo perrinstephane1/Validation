@@ -14,5 +14,5 @@ class SoupSemantics(SemanticTransitionRelation):
         return filter(lambda r: r.guard(source), self.program.rules)
 
     def execute(selfself, action, source):
-        t = copy.deepcopy(source)
+        t=source.copy()
         return action.execute(t)
