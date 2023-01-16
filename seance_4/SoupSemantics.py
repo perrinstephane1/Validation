@@ -13,6 +13,6 @@ class SoupSemantics(SemanticTransitionRelation):
     def enabledActions(self, source):
         return filter(lambda r: r.guard(source), self.program.rules)
 
-    def execute(selfself, action, source):
+    def execute(self, action, source):
         t=source.copy()
         return action.execute(t)

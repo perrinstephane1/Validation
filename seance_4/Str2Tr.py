@@ -11,5 +11,5 @@ class Str2Tr(TransitionRelation) :
         Actions = self.str.enabledActions(source)
         r = []
         for action in Actions:
-            r.append(self.str.execute(action, source))
+            r.extend(self.str.execute(action, source))
         return r

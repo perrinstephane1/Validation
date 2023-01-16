@@ -34,3 +34,6 @@ class HanoiConfiguration(AConfig):
 
     def copy(self):
         return copy.deepcopy(self)
+
+    def __repr__(self):
+        return str(self.conf)
