@@ -40,6 +40,6 @@ if __name__ == '__main__':
      for k in range(len(prog.rules)):
           print(prog.rules[k])
 
-     #s = SoupSemantics(p)
+     s = SoupSemantics(prog)
      #tr = Str2Tr(s)
      #predicate_finder(tr, lambda c : c.x == c.y)
