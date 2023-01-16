@@ -99,23 +99,39 @@ méthodes :
 - on les exécute
 
 ```python
+import copy
+
+
 class Rule:
-    def __init__(self , guard, action):
-        self.guard=guard
-        self.action=action
+    def __init__(self, name, guard, action):
+        self.name = name
+        self.guard = guard
+        self.action = action
+    def execute(self, config): return [self.action(config)]
+
+
 class SoupProgram():
     # possède les trois fonctions plus haut
     def __init__(self, ini):
-        self.ini=ini
-        self.rules=[]
+        self.ini = ini
+        self.rules = []
+
     def add(self, rule):
         self.rules.append(rule)
+
+
 class SoupSemantics(SemanticTransitionRelation):
     def __init__(self, program):
-        self.program=program
+        self.program = program
+
     def initialConfiguration(self):
         return [self.program.ini]
+
     def enabledAction(self, source):
-        return filter(labdafct, r.guard(source)), program.rules
+        return filter(labdafct, r.guard(source), program.rules)
+
+    def execute(self, action, source):
+        target = copy.deepcopy(source)
+        return action.execute(t)
 
 ```
