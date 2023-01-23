@@ -180,4 +180,12 @@ class InupuSemTransRelation():
         pass
     def execute(self, action, input, source):
         pass
+
+class InputSoupSemantics():
+    def __init__(self):
+        pass
+    def actions(self, input, source):
+        pass
+    #filter (lambda c:c.guard(input, source), self.program.rules)
+    #execute(self, action, input, source)
 ```
