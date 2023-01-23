@@ -191,7 +191,7 @@ class InputSoupSemantics():
     #execute(self, action, input, source)
 ```
 On rajoute un champ input à toutes nos méthodes
-````python
+```python
 import copy
 
 
@@ -216,7 +216,7 @@ class InputSoupSemantics(InputTransitionRelation):
         target = copy.deepcopy(source)
         n=action(input, target)
         return [target]
-````
+```
 
 ```python
 class MaybeStatter():
@@ -262,3 +262,10 @@ class StepSynchronousProduct(SemanticTransitionRelation):
         r_T=self.rhs.execute(ra, step, rs)
         return map(lambda rt:(step.target, rt) , R_T)
 ```
+###Suite des évènements
+
+
+si vous avez réussi à suivre, pour tout prédicat que vous aviez la dernière fois vous pouvez les encoder avec de automates comme ça.
+
+La suite : détecter les cycles...
+Il parait que c'est pas dur
