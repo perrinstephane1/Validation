@@ -43,17 +43,13 @@ def guardeAB(i, j):
                 return False
         else :
             return True
-
-
-
-
     return res
 
 
 def changeAB(i, j):
     def res(config):
-        indice = config.conf[0][i].pop(0)
-        config.conf[j] = [indice] + config.conf[j]
+        indice = config.conf[i].pop(0)
+        config.conf[j].append(indice)
         return config
 
     return res
