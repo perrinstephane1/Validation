@@ -136,9 +136,48 @@ class SoupSemantics(SemanticTransitionRelation):
 
 ```
 
-Pour la semaine prochaine
+# séance du 23 Janvier:
+## Implémentation du début d'Alice et Bob
 3 premiers versions du TD Vérif
 - Alice et Bob qui violent la CS : contre exemple
 - deadlock !
 - livelock
 
+## au tableau
+
+```python
+import copy
+
+
+class NBitsConfig():
+    def __init__(self, n):
+        self.value = 0
+    # __eq__
+    # __hash__
+
+
+soup = SoupProgram(NBitsConfig)
+soup.add('flip 0', lambda x: True, flip0)
+soup.add('flip 1', lambda x: True, flip1)
+
+def execute(self, action, c):
+    t = copy.deepcopy(c)
+    o=a(t)
+    return o # pas trop sûr
+
+class PredAutomConfig:
+    def __init__(self):
+        self.pc=0
+    # eq et hash
+
+pSoup=iSoupProgram(PredAutomConfig())
+pSoup.add('p', lambda i c:c.pc=i and predicate, action)
+
+class InupuSemTransRelation():
+    def __init__(self):
+        pass   
+    def actions(self, input, source):
+        pass
+    def execute(self, action, input, source):
+        pass
+```
