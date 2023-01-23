@@ -176,6 +176,7 @@ pSoup.add('p', lambda i c:c.pc=i and predicate, action)
 class InupuSemTransRelation():
     def __init__(self):
         pass   
+    def initial(self):pass
     def actions(self, input, source):
         pass
     def execute(self, action, input, source):
@@ -189,3 +190,30 @@ class InputSoupSemantics():
     #filter (lambda c:c.guard(input, source), self.program.rules)
     #execute(self, action, input, source)
 ```
+
+````python
+import copy
+
+
+class InputSemanticTransitionRelation():
+    def __init__(self): pass
+
+    def enableActions(self, input, source): pass
+
+    def execute(self, action, input, source): pass
+
+
+class InputSoupSemantics(InputTransitionRelation):
+    def __init__(self, program):
+        self.prog = program
+
+    def initial(self): return [self.prog.init]
+
+    def enabledActions(self, input, source):
+        return filter(lambda r: r.guard(input, source), self.prog.rules)
+
+    def execute(self, action, input, source):
+        target = copy.deepcopy(source)
+        n=action(input, target)
+        return [target]
+````
