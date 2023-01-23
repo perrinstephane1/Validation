@@ -1,6 +1,6 @@
 from seance_1.predicate_finder import predicate_finder
 from seance_3.ParentTraceProxy import ParentTraceProxy, getTrace
-from seance_4.AliceBob import AliceBob, guardeAB, changeAB
+from seance_5.AliceBob import AliceBob, guardeAB, changeAB
 from seance_4.Rule import Rule
 from seance_4.SoupProgram import SoupProgram
 from seance_4.SoupSemantics import SoupSemantics
