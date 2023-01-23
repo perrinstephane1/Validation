@@ -15,6 +15,9 @@ class AliceBob(AConfig):
     def copy(self):
         return copy.deepcopy(self)
 
+    def AB_on_entry(self, n):
+        return len(n.conf[1])>=2
+
     def __hash__(self):
         return 1
 
@@ -53,3 +56,4 @@ def changeAB(i, j):
         return config
 
     return res
+
