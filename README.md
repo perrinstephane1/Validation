@@ -190,7 +190,7 @@ class InputSoupSemantics():
     #filter (lambda c:c.guard(input, source), self.program.rules)
     #execute(self, action, input, source)
 ```
-
+On rajoute un champ input à toutes nos méthodes
 ````python
 import copy
 
