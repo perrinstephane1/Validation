@@ -45,7 +45,7 @@ def guardeAB2(i, j):
             else :
                 return True
         elif i==1 or i==3:  # cas waitAlice ou waitBob
-            if j!=2:
+            if j!=2 or len(config.conf[2]) >= 1 :
                 return False
             else :
                 return True
