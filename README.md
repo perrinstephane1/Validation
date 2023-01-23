@@ -141,3 +141,4 @@ Pour la semaine prochaine
 - Alice et Bob qui violent la CS : contre exemple
 - deadlock !
 - livelock
+
