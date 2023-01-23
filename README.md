@@ -219,22 +219,46 @@ class InputSoupSemantics(InputTransitionRelation):
 ````
 
 ```python
-class AbstractStep():
+class MaybeStatter():
     def __init__(self, source, action, target):
         self.source=source
         self.target=target
         self.action=action
-class StutterStep(AbstractStep):
-class Step(AbstractStep):
+class Stutter(MaybeStatter):
+class Step():
+class Action(MaybeStatter):
 class StepSynchronousProduct(SemanticTransitionRelation):
-        def __init__(self, lhs, rhs):
-            self.lhs=lhs
-            self.rhs=rhs
-        def initial(self):
-            r=[]
-            for lc in lhs.initial():
-                for rc in rhs.initial():
-                    r.append((lc, rc))
-            return r
-    
+    def __init__(self, lhs, rhs):
+        self.lhs=lhs
+        self.rhs=rhs
+    def initial(self):
+        r=[]
+        for lc in lhs.initial():
+            for rc in rhs.initial():
+                r.append((lc, rc))
+        return r
+    def enabledActions(self, source):
+        ls, rc=source
+        synchA=[]
+        lhs_enA=self.lhs.enabledActions(ls)
+        nbreActions=len(lhs_enA)
+        for la in lhs_enA:
+            targets=self.lhs.execute(lhs.a, ls)
+            if len(targets==0):
+                nbreActions-=1
+            #partie sans deadlock
+            for lt in targets:
+                rhs_enA=self.rhs.enabledActions(Step(lc, la, lt), rs)
+                synchA.append(map(lambda rc:(Step(lc, la, lt)), rhs_enA))
+            #on est dans un deadlock
+            if nbreActions==0:
+                step=Step(lc, Stutter(), lc)
+                rhs_enA=self.rhs.enabledActions(step, rs)
+                synchA.append(map(lambda ra:(step,ra), rhs_enA))
+        return synchA
+    def execute(self,action, source):
+        step, ra=action
+        ls, rs = source
+        r_T=self.rhs.execute(ra, step, rs)
+        return map(lambda rt:(step.target, rt) , R_T)
 ```
