@@ -157,11 +157,27 @@ class NBitsConfig():
 
 
 soup = SoupProgram(NBitsConfig)
-soup.add('flip 0', lambda x: True, flip)
-
+soup.add('flip 0', lambda x: True, flip0)
+soup.add('flip 1', lambda x: True, flip1)
 
 def execute(self, action, c):
     t = copy.deepcopy(c)
     o=a(t)
-    return 
+    return o # pas trop sûr
+
+class PredAutomConfig:
+    def __init__(self):
+        self.pc=0
+    # eq et hash
+
+pSoup=iSoupProgram(PredAutomConfig())
+pSoup.add('p', lambda i c:c.pc=i and predicate, action)
+
+class InupuSemTransRelation():
+    def __init__(self):
+        pass   
+    def actions(self, input, source):
+        pass
+    def execute(self, action, input, source):
+        pass
 ```
