@@ -217,3 +217,24 @@ class InputSoupSemantics(InputTransitionRelation):
         n=action(input, target)
         return [target]
 ````
+
+```python
+class AbstractStep():
+    def __init__(self, source, action, target):
+        self.source=source
+        self.target=target
+        self.action=action
+class StutterStep(AbstractStep):
+class Step(AbstractStep):
+class StepSynchronousProduct(SemanticTransitionRelation):
+        def __init__(self, lhs, rhs):
+            self.lhs=lhs
+            self.rhs=rhs
+        def initial(self):
+            r=[]
+            for lc in lhs.initial():
+                for rc in rhs.initial():
+                    r.append((lc, rc))
+            return r
+    
+```
