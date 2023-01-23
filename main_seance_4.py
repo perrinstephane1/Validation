@@ -1,7 +1,7 @@
 import copy
 
 from seance_1.predicate_finder import predicate_finder
-from seance_2.HanoiConfiguration import HanoiConfiguration
+from seance_2.HanoiConfiguration import HanoiConfiguration, guarde, change
 from seance_3.ParentTraceProxy import ParentTraceProxy, getTrace
 from seance_4.Config1 import Config1
 from seance_4.Rule import Rule
@@ -9,25 +9,6 @@ from seance_4.SoupProgram import SoupProgram
 from seance_4.SoupSemantics import SoupSemantics
 from seance_4.Str2Tr import Str2Tr
 
-def guarde(i, j):
-     def res(config):
-          if config.conf[i]==[]:
-               return False
-          indice=config.conf[i][0]
-          if config.conf[j]==[]:
-               return True
-          if config.conf[j][0]>indice:
-               return True
-          else:
-               return False
-     return res
-
-def change(i, j):
-     def res(config):
-          indice=config.conf[i].pop(0)
-          config.conf[j]=[indice]+config.conf[j]
-          return config
-     return res
 
 def hanoi_on_entry1(n):
    conf = n.conf

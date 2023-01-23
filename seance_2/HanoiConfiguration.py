@@ -37,3 +37,25 @@ class HanoiConfiguration(AConfig):
 
     def __repr__(self):
         return str(self.conf)
+
+def guarde(i, j):
+    def res(config):
+        if config.conf[i] == []:
+            return False
+        indice = config.conf[i][0]
+        if config.conf[j] == []:
+            return True
+        if config.conf[j][0] > indice:
+            return True
+        else:
+            return False
+
+    return res
+
+def change(i, j):
+    def res(config):
+        indice = config.conf[i].pop(0)
+        config.conf[j] = [indice] + config.conf[j]
+        return config
+
+    return res
