@@ -8,6 +8,8 @@ class AliceBob2(AConfig):
         # alice = 1
         # bob = 2
         self.conf = [[1], [], [], [], [2]]  # chez Alice, waitAlice, jardin, waitBob, chez Bob
+        self.flagAlice = False
+        self.flagBob = False
 
     def config(self):
         return self.conf
@@ -16,47 +18,63 @@ class AliceBob2(AConfig):
         return copy.deepcopy(self)
 
     def AB2_on_entry(self, n):
-        return len(n.conf[1])>=1 and len(n.conf[3])>=1
+        return len(n.conf[1]) >= 1 and len(n.conf[3]) >= 1
+
+    # modif de on_entry pour avoir 3 paramètres
+    def AB2_on_entry2(self, source, n, o):
+        print(n)
+        return len(list(o[0].enabledActions(n))) == 0  # retourne quand il n'y a plus d'actions possible
 
     def __hash__(self):
         return 1
 
     def __eq__(self, other):
-        return self.conf==other.conf
+        return self.conf == other.conf
 
     def __repr__(self):
         return str(self.conf)
 
+    def guardeAB2(self, i, j):
+        def res(config):
+            if i == j:
+                return False
+            if config.conf[i] == []:  # section vide
+                return False
+            elif i == 0:  # cas chez alice
+                if j != 1:
+                    return False
+                else:
+                    self.flagAlice = True
+                    return True
+            elif i == 4:  # cas chez bob
+                if j != 3:
+                    return False
+                else:
+                    self.flagBob = True
+                    return True
+            elif i == 1:  # cas waitAlice
+                if j != 2 or self.flagBob != False:
+                    return False
+                else:
+                    return True
+            elif i == 3:  # cas waitBob
+                if j != 2 or self.flagAlice != False:
+                    return False
+                else:
+                    return True
+            elif i == 2:  # cas jardin
+                if config.conf[i][0] == 2 and j == 4:  # cas Bob rentre chez Bob
+                    self.flagBob = False
+                    return True
+                elif config.conf[i][0] == 1 and j == 0:  # cas Alice rentre chez Alice
+                    self.flagAlice = False
+                    return True
+                else:
+                    return False
+            else:
+                return True
 
-def guardeAB2(i, j):
-    def res(config):
-        if i == j :
-            return False
-        if config.conf[i] == []: # section vide
-            return False
-        elif i==0 :  # cas chez alice
-            if j!=1:
-                return False
-            else :
-                return True
-        elif i==4 :  # cas chez bob
-            if j!=3:
-                return False
-            else :
-                return True
-        elif i==1 or i==3:  # cas waitAlice ou waitBob
-            if j!=2 or len(config.conf[2]) >= 1 :
-                return False
-            else :
-                return True
-        elif i == 2:  # cas jardin
-            if config.conf[i][0] == 2 and j != 4:
-                return False
-            if config.conf[i][0] == 1 and j != 0:
-                return False
-        else :
-            return True
-    return res
+        return res
 
 
 def changeAB2(i, j):
@@ -66,4 +84,3 @@ def changeAB2(i, j):
         return config
 
     return res
-
