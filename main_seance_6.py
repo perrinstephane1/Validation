@@ -1,7 +1,11 @@
+
+from seance_1.predicate_finder import predicate_finder
+from seance_3.ParentTraceProxy import ParentTraceProxy, getTrace
 from seance_4.AConfig import AConfig
 from seance_4.Rule import Rule
 from seance_4.SoupProgram import SoupProgram
 from seance_4.SoupSemantics import SoupSemantics
+from seance_4.Str2Tr import Str2Tr
 from seance_5.Conf2 import Conf2, Conf3
 from seance_5.InputSoupSemantics import InputSoupSemantics
 from seance_5.StepSynchronousProduct import StepSynchronousProduct
@@ -18,6 +22,8 @@ def a2(i, c):
 g3=lambda c : c.PC=='a'
 def a3(c):
     c.PC='b'
+
+def fct_de_test()
 # à droite
 conf=Conf2()
 program=SoupProgram(conf)
@@ -30,14 +36,24 @@ confg=Conf3()
 programg=SoupProgram(confg)
 programg.add(Rule('R1', g3, a3))
 m=SoupSemantics(programg)
-
-# test
 ssp=StepSynchronousProduct(m,p)
-l=ssp.initial()
 
-step, rule=ssp.enabledActions(l[0])[0][0]
+def test():
 
-#action=?
-source=(ssp.lhs, ssp.rhs)
-res=ssp.execute((step, rule), source)
-print(res)
+    l=ssp.initial()
+
+    step, rule=ssp.enabledActions(l[0])[0][0]
+
+    #action=?
+    source=(ssp.lhs, ssp.rhs)
+    res=ssp.execute((step, rule), source)
+    print(res)
+
+def test2():
+    translater = Str2Tr(ssp)
+    dict = {}
+    ptp = ParentTraceProxy(translater, dict)
+    [p, found, count, target], known = predicate_finder(ptp, hanoi_on_entry1)
+    print(getTrace(dict, target))
+
+test2()

@@ -5,7 +5,7 @@ class Str2Tr(TransitionRelation) :
         self.str = str
 
     def roots(self):
-        return self.str.initialConfigurations()
+        return self.str.initial()
 
     def next(self, source):
         Actions = self.str.enabledActions(source)
