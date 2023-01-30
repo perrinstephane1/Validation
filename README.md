@@ -269,3 +269,6 @@ si vous avez réussi à suivre, pour tout prédicat que vous aviez la dernière 
 
 La suite : détecter les cycles...
 Il parait que c'est pas dur
+
+# Séance du 30 Janvier
+Compréhension du program de `StepSynchronousProduct`

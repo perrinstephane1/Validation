@@ -1,3 +1,6 @@
+from seance_4.SoupProgram import SoupProgram
+
+
 class NBitsConfig():
     def __init__(self, n):
         self.value = 0

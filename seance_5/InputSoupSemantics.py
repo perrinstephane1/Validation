@@ -1,3 +1,8 @@
+import copy
+
+from seance_5.InputSemanticTransitionRelation import InputSemanticTransitionRelation
+
+
 class InputSoupSemantics(InputSemanticTransitionRelation):
     def __init__(self, program):
         self.program = program

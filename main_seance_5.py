@@ -28,7 +28,7 @@ if __name__ == '__main__':
      [p, found, count, target], known = predicate_finder(ptp, iC.AB_on_entry)
      print(getTrace(dict, target))
      '''
-
+     # deadlock
      ABconf=AliceBob2()
      iC = ABconf
      prog = SoupProgram(iC)
