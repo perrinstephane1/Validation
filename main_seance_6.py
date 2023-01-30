@@ -1,4 +1,4 @@
-
+from main_seance_4 import hanoi_on_entry1
 from seance_1.predicate_finder import predicate_finder
 from seance_3.ParentTraceProxy import ParentTraceProxy, getTrace
 from seance_4.AConfig import AConfig
@@ -23,7 +23,9 @@ g3=lambda c : c.PC=='a'
 def a3(c):
     c.PC='b'
 
-def fct_de_test()
+def fct_de_test(n):
+    print(n)
+    return True
 # à droite
 conf=Conf2()
 program=SoupProgram(conf)
@@ -53,7 +55,7 @@ def test2():
     translater = Str2Tr(ssp)
     dict = {}
     ptp = ParentTraceProxy(translater, dict)
-    [p, found, count, target], known = predicate_finder(ptp, hanoi_on_entry1)
+    [p, found, count, target], known = predicate_finder(ptp, fct_de_test)
     print(getTrace(dict, target))
 
 test2()
