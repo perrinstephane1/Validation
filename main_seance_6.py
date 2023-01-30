@@ -35,4 +35,9 @@ m=SoupSemantics(programg)
 ssp=StepSynchronousProduct(m,p)
 l=ssp.initial()
 
-print(ssp.enabledActions(l[0]))
+step, rule=ssp.enabledActions(l[0])[0][0]
+
+#action=?
+source=(ssp.lhs, ssp.rhs)
+res=ssp.execute((step, rule), source)
+print(res)

@@ -15,7 +15,7 @@ class InputSoupSemantics(InputSemanticTransitionRelation):
 
     def execute(self, action, input, source):
         target = copy.deepcopy(source)
-        n = action(input, target)
+        n = action.action(input, target)
         return [target]
 
     #filter (lambda c:c.guard(input, source), self.program.rules)
