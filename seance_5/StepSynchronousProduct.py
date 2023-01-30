@@ -30,7 +30,7 @@ class StepSynchronousProduct(SemanticTransitionRelation):
             for lt in l_targets:
                 step = Step(ls, Action(la), lt)
                 rhs_enA = self.rhs.enabledActions(step, rs)
-                syncA.append(map(lambda ra : (step, ra), rhs_enA))
+                syncA.append(list(map(lambda ra : (step, ra), rhs_enA)))
                 #syncA.append(map(lambda ra: (la, ra), rhs_enA))
 
         # Deadlock stutter
@@ -46,4 +46,4 @@ class StepSynchronousProduct(SemanticTransitionRelation):
         ls, rs = source
         step, ra = action
         r_T = self.rhs.execute(ra, step, rs)
-        return map(lambda rt: (step.target, rt), r_T)
+        return list(map(lambda rt: (step.target, rt), r_T))

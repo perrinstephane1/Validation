@@ -15,4 +15,5 @@ class SoupSemantics(SemanticTransitionRelation):
 
     def execute(self, action, source):
         t=source.copy()
-        return action.execute(t)
+        action.execute(t)
+        return [t]
