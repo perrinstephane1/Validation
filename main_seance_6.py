@@ -26,4 +26,5 @@ m=SoupSemantics(programg)
 
 # test
 ssp=StepSynchronousProduct(m,p)
-print(ssp.enabledActions)
+l=ssp.initial()
+ssp.enabledActions(l[0])
