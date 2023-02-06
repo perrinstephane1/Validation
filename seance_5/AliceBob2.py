@@ -80,10 +80,8 @@ class AliceBob2(AConfig):
     def changeAB2(self, i, j):
         def res(config):
             if i == 0 and j == 1:
-                print("i = 0 et j = 1")
                 config.flagAlice = True
             if i == 4 and j == 3:
-                print("i = 4 et j = 3")
                 config.flagBob = True
             #if i == 2 and j == 0:
              #   config.flagAlice = False
