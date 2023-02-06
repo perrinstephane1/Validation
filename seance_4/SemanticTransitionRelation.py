@@ -3,7 +3,7 @@ class SemanticTransitionRelation:
     def __init__(self):
         pass
 
-    def initialConfigurations(self):
+    def initial(self):
         pass
 
     def enabledActions(self, source):
