@@ -1,7 +1,10 @@
 # Test du SSP avec une version d'Alice et Bob
+from seance_1.predicate_finder import predicate_finder
+from seance_3.ParentTraceProxy import ParentTraceProxy, getTrace
 from seance_4.Rule import Rule
 from seance_4.SoupProgram import SoupProgram
 from seance_4.SoupSemantics import SoupSemantics
+from seance_4.Str2Tr import Str2Tr
 from seance_5.AliceBob2 import AliceBob2
 
 ## base : Alice et Bob avec Drapeau - Schéma juste avant l'exercice 6
@@ -22,30 +25,36 @@ def test():
                 prog.add(Rule('{} vers {}'.format(i, j), ABconf.guardeAB2(i, j), ABconf.changeAB2(i, j)))
 
     #s = SoupSemantics(prog)
-    p = InputSoupSemantics(prog)
+    p =SoupSemantics(prog)
 
     ## Automate d'acceptation :
     conf=Conf2()
     guarde=lambda i,c : c.PC==1
 
     def guarde2(i, c):
-        return c.PC == 1 and not (2 in i.conf[2]) and not (2 in i.conf[2])
+        return c.PC == 1 and not (2 in i.source.conf[2]) and not (2 in i.source.conf[2])
 
     def a2(i, c):
         c.PC=2
 
     def fct_de_test(n):
-        print(n)
-        return True
+        print(n[0].conf)
+        return (2 in n[0].conf[2]) and (1 in n[0].conf[1])
+        #return True
 
     programg=SoupProgram(conf)
     programg.add(Rule('ne rien faire', guarde, None))
     programg.add(Rule('avancer', guarde2, a2))
-    m=SoupSemantics(programg)
+    m=InputSoupSemantics(programg)
 
     ## SSP
-    ssp=StepSynchronousProduct(m,p)
-    l=ssp.initial()
-    print(l)
+    ssp=StepSynchronousProduct(p, m)
+    # l=ssp.initial()
+    translater = Str2Tr(ssp)
+    dict = {}
+    ptp = ParentTraceProxy(translater, dict)
+    [p, found, count, target], known = predicate_finder(ptp, fct_de_test)
+    if found:
+        print(getTrace(dict, target))
 
 test()
