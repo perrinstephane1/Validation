@@ -20,7 +20,7 @@ def hanoi_on_entry1(n):
    double = copy.deepcopy(conf[-1])
    if double.sort() == conf[-1]:
        return False
-   print("GAGNE")
+   print("GAGNE " + str(n.conf))
    return True
 
 if __name__ == '__main__':

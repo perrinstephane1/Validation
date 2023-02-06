@@ -5,10 +5,14 @@ Cours de Validation (2023)
 Dans cette partie, nous allons expliquer notre travail sur Hanoi et les trois versions d'Alice et Bob
 
 ###Hanoi
-Une configuration de Hanoi est représentée par un tableau de tableaux : [ [0, 1, 2], [ ], [ ] ], où un tableau représente une tour de Hanoi et un chiffre représente un disque. La taille du disque est d'autant plus grande que le chiffre qui le représente est grand.
+Une configuration de Hanoi est représentée par un tableau de tableaux : [ [0, 1, 2], [ ], [ ] ], où un tableau représente une tour de Hanoi et un chiffre représente un disque. La taille du disque est d'autant plus grande que le chiffre qui le représente est grand. De plus, le haut de la tour est le début du tableau : quand on ajoute un disque, il se met à l'indice 0 du tableau.  
+Dans la fonction guarde(), il faut retourner False quand un mouvement ne peut pas être effectué (selon les règles du jeu de Hanoi) et True sinon. 
+C'est ensuite dans la fonction change() qu'on définit ce qui se passe lors d'un mouvement : on enlève un disque d'une tour et on le rajoute à une autre tour si les conditions données par la garde sont vérifiées.  
+Dans le main (main_seance_4.py), on définit une fonction hanoi_on_entry1() qui va arrêter le parcours de graphe bfs() si elle retourne True. Elle renvoie True quand le jeu est résolue, c'est-à-dire quand tous les disques sont dans l'ordre sur la dernière tour.
 
 ###Alice et Bob
-Une configuration de Alice et Bob est représentée comme pour Hanoi : [ [1], [ ], [2] ], où le tableau de gauche représente chez Alice, le tableau de milieu représente le jardin et le tableau de droite représente chez Bob. Le chiffre 1 représente Alice et le chiffre 2 représente Bob. 
+Une configuration de Alice et Bob est représentée comme pour Hanoi : [ [1], [ ], [2] ], où le tableau de gauche représente chez Alice, le tableau de milieu représente le jardin et le tableau de droite représente chez Bob. Le chiffre 1 représente Alice et le chiffre 2 représente Bob.  
+Au début, il n'y a pas de 
 
 ## Cours du 4 janvier
 ###Etape 1
