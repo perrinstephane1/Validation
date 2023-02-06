@@ -13,9 +13,11 @@ class InputSoupSemantics(InputSemanticTransitionRelation):
     def enabledActions(self, input, source):
         return list(filter(lambda r : r.guard(input, source), self.program.rules))
 
-    def execute(self, action, input, source):
+    def execute(self, rule, input, source):
+        if rule.action is None:
+            return [source]
         target = copy.deepcopy(source)
-        n = action.action(input, target)
+        n = rule.action(input, target)
         return [target]
 
     #filter (lambda c:c.guard(input, source), self.program.rules)

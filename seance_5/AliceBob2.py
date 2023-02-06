@@ -76,7 +76,6 @@ class AliceBob2(AConfig):
 
         return res
 
-
     def changeAB2(self, i, j):
         def res(config):
             if i == 0 and j == 1:
