@@ -48,7 +48,7 @@ def mainAliceBob3():
     ABconf = AliceBob3()
     iC = ABconf
     prog = SoupProgram(iC)
-    # générer les règles pour AliceBob2
+    # générer les règles pour AliceBob3
     for i in range(5):
         for j in range(5):
             if i != j:
@@ -60,13 +60,13 @@ def mainAliceBob3():
     o = [s]
     bfs(translater, o, iC.AB3_on_entry2)
 
-    # dict = {}
-    # ptp = ParentTraceProxy(translater, dict)
-    # [p, found, count, target], known = predicate_finder(ptp, iC.AB3_on_entry)
-    # print(getTrace(dict, target))
+    #dict = {}
+    #ptp = ParentTraceProxy(translater, dict)
+    #[p, found, count, target], known = predicate_finder(ptp, iC.AB3_on_entry)
+    #print(getTrace(dict, target))
 
 
 if __name__ == '__main__':
     # mainAliceBob()
-    mainAliceBob2()
-    # mainAliceBob3()
+    # mainAliceBob2()
+    mainAliceBob3()
