@@ -38,8 +38,9 @@ def test():
         c.PC=2
 
     def fct_de_test(n):
-        print(n[0].conf)
+        #print(n[0].conf)
         return (2 in n[0].conf[2]) and (1 in n[0].conf[1])
+        #return (2 in n[0].conf[2]) and (1 in n[0].conf[2])
         #return True
 
     programg=SoupProgram(conf)
