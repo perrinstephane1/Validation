@@ -7,6 +7,7 @@ from seance_5.AliceBob2 import AliceBob2
 ## base : Alice et Bob avec Drapeau - Schéma juste avant l'exercice 6
 from seance_5.Conf2 import Conf2
 from seance_5.InputSoupSemantics import InputSoupSemantics
+from seance_5.StepSynchronousProduct import StepSynchronousProduct
 
 
 def test():
@@ -30,3 +31,21 @@ def test():
     def guarde2(i, c):
         return c.PC == 1 and not (2 in i.conf[2]) and not (2 in i.conf[2])
 
+    def a2(i, c):
+        c.PC=2
+
+    def fct_de_test(n):
+        print(n)
+        return True
+
+    programg=SoupProgram(conf)
+    programg.add(Rule('ne rien faire', guarde, None))
+    programg.add(Rule('avancer', guarde2, a2))
+    m=SoupSemantics(programg)
+
+    ## SSP
+    ssp=StepSynchronousProduct(m,p)
+    l=ssp.initial()
+    print(l)
+
+test()
