@@ -1,6 +1,15 @@
 # Validation
 Cours de Validation (2023)
 
+# Explication de nos résultats
+Dans cette partie, nous allons expliquer notre travail sur Hanoi et les trois versions d'Alice et Bob
+
+###Hanoi
+Une configuration de Hanoi est représentée par un tableau de tableaux : [ [0, 1, 2], [ ], [ ] ], où un tableau représente une tour de Hanoi et un chiffre représente un disque. La taille du disque est d'autant plus grande que le chiffre qui le représente est grand.
+
+###Alice et Bob
+Une configuration de Alice et Bob est représentée comme pour Hanoi : [ [1], [ ], [2] ], où le tableau de gauche représente chez Alice, le tableau de milieu représente le jardin et le tableau de droite représente chez Bob. Le chiffre 1 représente Alice et le chiffre 2 représente Bob. 
+
 ## Cours du 4 janvier
 ###Etape 1
 on crée un parcours de graphe en largeur
@@ -87,9 +96,9 @@ class ParentTraceProxy(IdentityProxy):
 ### Séance du 16 janvier
 class SemanticsTransitionRelation
 méthodes :
-- InitialConfigurations():List<C>
-- enabledActions(C source): List<A>
-- execute(A action, C source): List<C>
+- InitialConfigurations():List\<C\>
+- enabledActions(C source): List\<A\>
+- execute(A action, C source): List\<C\>
  
  fonction `str2tr(a Str): TR` toute seule !
 
