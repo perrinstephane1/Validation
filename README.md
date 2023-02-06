@@ -1,5 +1,6 @@
 # Validation
 Cours de Validation (2023)
+avec sur la DBRANCH la crack internationale Delphine FOUQUET
 
 # Explication de nos résultats
 Dans cette partie, nous allons expliquer notre travail sur Hanoi et les trois versions d'Alice et Bob
@@ -13,6 +14,20 @@ Dans le main (main_seance_4.py), on définit une fonction hanoi_on_entry1() qui 
 ###Alice et Bob
 Une configuration de Alice et Bob est représentée comme pour Hanoi : [ [1], [ ], [2] ], où le tableau de gauche représente chez Alice, le tableau de milieu représente le jardin et le tableau de droite représente chez Bob. Le chiffre 1 représente Alice et le chiffre 2 représente Bob.  
 Au début, il n'y a pas de 
+
+### Step Synchronous Product (SSP)
+(Code dans le fichier `main_seance_7.py`)
+Dans cette section, nous allons faire un test pour vérifier que notre implémentation est bien faite.
+Nous allons nous attarder sur le cas Alice et Bob, version 2 (ie chacun on un état "wait" avant d'entrer dans la section
+critique). Cela reprend la classe `AliceBob2` expliqué plus haut.
+Dans la fonction `test` nous créons d'abord un `SoupSemantic` qui contient les règles de l'automate
+qui représente Alice et Bob. 
+Nous créons ensuite un automate d'acceptation à deux états qui ne contient juste un PC.
+1 sera l'état de départ, 2 celui d'arrivée. Il on met une garde si on arrive à "Bob et Alice dans la Section Critique".
+Dans la fonction de test (`fct_de_test`, on peut mettre la condition d'arrêt :
+- la première ligne (non commentée) nous permet de chercher la configuration où Alice est dans la zone d'attente et où Bob est dans la CS.
+- la deuxième ligne permet de s'arrêter quand on arrive dans la section critique ensemble
+Enfin, l'appel à `predicate_finder` puis à `getTrace` nous permet d'afficher la suite des opération pour arriver dans cet état.
 
 ## Cours du 4 janvier
 ###Etape 1
