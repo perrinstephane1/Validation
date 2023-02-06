@@ -67,6 +67,6 @@ def mainAliceBob3():
 
 
 if __name__ == '__main__':
-    #mainAliceBob()
-    mainAliceBob2()
-    # mainAliceBob3()
+    # mainAliceBob()
+    # mainAliceBob2()
+    mainAliceBob3()
